@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Contrast Matrix</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="A tool to check color contrast ratios between multiple colors and ensure WCAG compliance">
+    <meta name="author" content="Richard Nesbitt">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Color Contrast Matrix</h1>
+            <p>Check multiple color combinations for WCAG 2.0 compliance</p>
+        </header>
+
+        <main>
+            <div class="color-contrast-container">
+                <form id="color-contrast-form" class="color-contrast-form">
+                    <div class="color-fields">
+                        <div class="color-field">
+                            <input type="text" class="hex-input" placeholder="#000000" pattern="^#?([A-Fa-f0-9]{6})$" required>
+                            <div class="color-preview"></div>
+                        </div>
+                        <div class="color-field">
+                            <input type="text" class="hex-input" placeholder="#000000" pattern="^#?([A-Fa-f0-9]{6})$" required>
+                            <div class="color-preview"></div>
+                        </div>
+                        <div class="color-field">
+                            <input type="text" class="hex-input" placeholder="#000000" pattern="^#?([A-Fa-f0-9]{6})$" required>
+                            <div class="color-preview"></div>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" id="add-color-field" class="add-color-button">Add Another Color</button>
+                        <button type="submit" class="generate-table-button">Generate Matrix</button>
+                    </div>
+                </form>
+                <div id="results-table" class="results-table"></div>
+                <div class="contrast-legend">
+                    <p><span class="contrast-pass">✓</span> Good contrast - Safe to use</p>
+                    <p><span class="contrast-warn">▲</span> Acceptable only for large text (18pt+, or 14pt+ if bold)</p>
+                    <p><span class="contrast-fail">×</span> Poor contrast - Do not use</p>
+                    <p><span class="contrast-cell-same"></span> Same color comparison</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created by <a href="https://richardnesbitt.com">Richard Nesbitt</a> | <a href="https://github.com/RichardNesbitt/color-contrast-matrix">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
