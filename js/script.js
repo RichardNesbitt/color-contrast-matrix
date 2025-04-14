@@ -63,13 +63,14 @@ $(document).ready(function() {
         if (isSame) {
             return '<span class="contrast-cell-same"></span>';
         }
+        const ratioText = ratio.toFixed(2);
         if (ratio >= 4.5) {
-            return '<span class="contrast-pass">✓</span>';
+            return `<span class="contrast-pass">✓</span> ${ratioText}`;
         }
         if (ratio >= 3.0) {
-            return '<span class="contrast-warn">▲</span>';
+            return `<span class="contrast-warn">▲</span> ${ratioText}`;
         }
-        return '<span class="contrast-fail">×</span>';
+        return `<span class="contrast-fail">×</span> ${ratioText}`;
     }
 
     // Generate the results table
