@@ -25,10 +25,10 @@ body {
 
 .sr-only {
     position: relative;
-    display: block;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+    display: block !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
     padding: 0;
     border: 0;
     overflow: hidden;
