@@ -5,6 +5,7 @@ $(document).ready(function() {
             <div class="color-field">
                 <input type="text" class="hex-input" placeholder="#000000" pattern="^#?([A-Fa-f0-9]{6})$" required>
                 <div class="color-preview"></div>
+                <button type="button" class="delete-color-button">Delete</button>
             </div>
         `);
         $('.color-fields').append(newField);
@@ -130,5 +131,12 @@ $(document).ready(function() {
         
         // Display the table
         $('#results-table').html(tableHtml);
+    });
+
+    // Add delete functionality
+    $(document).on('click', '.delete-color-button', function() {
+        if ($('.color-field').length > 1) {
+            $(this).parent('.color-field').remove();
+        }
     });
 }); 

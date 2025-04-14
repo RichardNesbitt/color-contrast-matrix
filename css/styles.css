@@ -79,7 +79,7 @@ header p {
 .color-field {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .hex-input {
@@ -233,4 +233,17 @@ footer a:hover {
     .hex-input {
         width: 120px;
     }
+}
+
+.delete-color-button {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+}
+
+.delete-color-button:hover {
+    color: #dc3545;
 } 
