@@ -58,6 +58,17 @@ $(document).ready(function() {
         };
     }
 
+    // Determine best text color (black or white) for a background color
+    function getBestTextColor(bgColor) {
+        const rgb = hexToRgb(bgColor);
+        const bgLuminance = getLuminance(rgb.r, rgb.g, rgb.b);
+        
+        const blackContrast = getContrastRatio(bgLuminance, 0);  // 0 luminance for black
+        const whiteContrast = getContrastRatio(bgLuminance, 1);  // 1 luminance for white
+        
+        return whiteContrast > blackContrast ? '#FFFFFF' : '#000000';
+    }
+
     // Get contrast indicator
     function getContrastIndicator(ratio, isSame) {
         if (isSame) {
@@ -90,13 +101,14 @@ $(document).ready(function() {
         // Create table header
         let tableHtml = '<table class="contrast-table"><tr><th></th>';
         colors.forEach(color => {
-            tableHtml += `<th style="background-color: ${color}">${color}</th>`;
+            const textColor = getBestTextColor(color);
+            tableHtml += `<th style="background-color: ${color}; color: ${textColor}">${color}</th>`;
         });
         tableHtml += '</tr>';
 
         // Create table rows
         colors.forEach((rowColor, i) => {
-            tableHtml += `<tr><th style="background-color: ${rowColor}">${rowColor}</th>`;
+            tableHtml += `<tr><th style="background-color: ${rowColor}; color: ${getBestTextColor(rowColor)}">${rowColor}</th>`;
             
             colors.forEach((colColor, j) => {
                 const rgb1 = hexToRgb(rowColor);
