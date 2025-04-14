@@ -61,16 +61,16 @@ $(document).ready(function() {
     // Get contrast indicator
     function getContrastIndicator(ratio, isSame) {
         if (isSame) {
-            return '<span class="contrast-cell-same"></span>';
+            return '<span class="contrast-cell-same"><span class="sr-only">Same color</span></span>';
         }
         const ratioText = ratio.toFixed(2);
         if (ratio >= 4.5) {
-            return `<span class="contrast-pass">✓</span> ${ratioText}`;
+            return `<span class="contrast-pass">✓<span class="sr-only">Pass</span></span> ${ratioText}`;
         }
         if (ratio >= 3.0) {
-            return `<span class="contrast-warn">▲</span> ${ratioText}`;
+            return `<span class="contrast-warn">▲<span class="sr-only">Warning</span></span> ${ratioText}`;
         }
-        return `<span class="contrast-fail">×</span> ${ratioText}`;
+        return `<span class="contrast-fail">×<span class="sr-only">Fail</span></span> ${ratioText}`;
     }
 
     // Generate the results table
